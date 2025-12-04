@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Dibakar Biswas - Frontend Developer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <style>
+      .icon-facebook:before {
+        content: "\f09a";
+        font-family: "Font Awesome 5 Brands";
+      }
+      .icon-instagram:before {
+        content: "\f16d";
+        font-family: "Font Awesome 5 Brands";
+      }
+      .icon-linkedin:before {
+        content: "\f0e1";
+        font-family: "Font Awesome 5 Brands";
+      }
+      .icon-github:before {
+        content: "\f09b";
+        font-family: "Font Awesome 5 Brands";
+      }
+    </style>
+    <script
+      crossorigin="anonymous"
+      src="https://kit.fontawesome.com/a076d05399.js"
+    ></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1A1A1A",
+              "background-light": "#f7f7f7",
+              "background-dark": "#191919",
+              "text-light": "#333333",
+              "text-dark": "#c9d1d9",
+              "text-secondary-light": "#666666",
+              "text-secondary-dark": "#8b949e",
+            },
+            fontFamily: { display: "Space Grotesk" },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "2rem",
+              xl: "3rem",
+              full: "9999px",
+            },
+            boxShadow: {
+              "primary-glow": "0 0 15px 5px rgba(0, 191, 255, 0.4)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"
+  >
+    <div
+      class="min-h-screen p-4 flex flex-col bg-gradient-to-br from-background-light to-gray-100 dark:from-background-dark dark:to-slate-900"
+    >
+      <header class="flex justify-between items-center py-4 px-2">
+        <h1 class="text-xl font-bold text-primary">Dibakar Biswas</h1>
+        <button class="p-2">
+          <div
+            class="py-4 gap-6 mt-8 flex justify-around items-center text-text-secondary-light dark:text-text-secondary-dark"
+          >
+            <a class="flex flex-col items-center hover:text-primary transition-colors" href="#">
+              <span class="material-symbols-outlined">home</span>
+              <span class="text-xs">Home</span>
+            </a>
+            <a
+              class="flex flex-col items-center hover:text-primary transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined">person</span>
+              <span class="text-xs">About</span>
+            </a>
+            <a
+              class="flex flex-col items-center hover:text-primary transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined">work</span>
+              <span class="text-xs">Portfolio</span>
+            </a>
+            <a
+              class="flex flex-col items-center hover:text-primary transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined">mail</span>
+              <span class="text-xs">Contact</span>
+            </a>
+          </div>
+        </button>
+      </header>
+      <main
+        class="flex-grow flex flex-col justify-center items-center px-2 text-center mt-8"
+      >
+        <div class="relative w-48 h-48 mb-10">
+          <div
+            class="absolute inset-0 rounded-full bg-primary shadow-primary-glow animate-pulse"
+          ></div>
+          <img
+            alt="Portrait of Dibakar Biswas"
+            class="relative w-full h-full object-cover rounded-full border-4 border-background-light dark:border-background-dark"
+            src="https://i.ibb.co/JjQZq4Q5/dp.jpg"
+          />
+        </div>
+        <p
+          class="text-lg text-text-secondary-light dark:text-text-secondary-dark mb-1"
+        >
+          Hi, Myself
+        </p>
+        <h2 class="text-5xl font-bold mb-2">
+          <span class="text-primary">Dibakar</span>
+        </h2>
+        <h3
+          class="text-3xl font-semibold mb-6 text-text-light dark:text-text-dark"
+        >
+          And I'm a <span class="text-primary">Frontend Developer</span>
+        </h3>
+        <p
+          class="text-base text-text-secondary-light dark:text-text-secondary-dark max-w-md mx-auto mb-8"
+        >
+          Passionate about creating beautiful, responsive websites and
+          exceptional user experiences. Specialized in modern web technologies
+          including React, Vue.js, and advanced CSS frameworks.
+        </p>
+        <div class="flex space-x-4 mb-10">
+          <a
+            class="w-12 h-12 flex items-center justify-center rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors"
+            href="#"
+          >
+            <i class="fab fa-facebook-f text-xl"></i>
+          </a>
+          <a
+            class="w-12 h-12 flex items-center justify-center rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors"
+            href="#"
+          >
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a
+            class="w-12 h-12 flex items-center justify-center rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors"
+            href="#"
+          >
+            <i class="fab fa-linkedin-in text-xl"></i>
+          </a>
+          <a
+            class="w-12 h-12 flex items-center justify-center rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors"
+            href="#"
+          >
+            <i class="fab fa-github text-xl"></i>
+          </a>
+        </div> 
+        <button
+          class="bg-primary text-white font-semibold py-3 px-8 rounded-full "
+        >
+          READ MORE
+        </button>
+      </main>
+    </div>
+  </body>
+</html>

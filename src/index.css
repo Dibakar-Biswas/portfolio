@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply min-h-[max(884px,100dvh)];
+  }
+}
+
+.icon-facebook:before {
+  content: "\f09a";
+  font-family: "Font Awesome 5 Brands";
+}
+.icon-instagram:before {
+  content: "\f16d";
+  font-family: "Font Awesome 5 Brands";
+}
+.icon-linkedin:before {
+  content: "\f0e1";
+  font-family: "Font Awesome 5 Brands";
+}
+.icon-github:before {
+  content: "\f09b";
+  font-family: "Font Awesome 5 Brands";
+}
