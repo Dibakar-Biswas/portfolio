@@ -71,49 +71,18 @@ function App() {
       transition: { type: "spring", stiffness: 300 },
     },
   };
-
+  /**
+ * Dark Navy Blue - #0a0e27 or #0f1419
+Deep Charcoal - #121212 or #1a1a1a
+Dark Slate Gray - #1e293b or #0f172a
+Deep Teal - #002222 or #001a1a
+Rich Indigo - #1a1a2e or #16213e
+ */
   return (
-    <div className="min-h-screen bg-background-dark text-text-dark font-display overflow-hidden relative">
+    <div className="min-h-screen bg-[#0f172a] text-text-dark font-display overflow-hidden relative">
       {/* Background Gradient Effect */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-background-dark via-background-dark to-[#001a1f] opacity-50 -z-10"></div>
 
-      {/* <header className="flex justify-between items-center py-6 px-4 max-w-7xl mx-auto w-full">
-        <motion.h1
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl font-bold text-primary tracking-wide"
-        >
-          Dibakar Biswas
-        </motion.h1>
-
-        <nav className="hidden md:flex gap-8 items-center">
-          {["Home", "About", "Services", "Portfolio", "Contact"].map(
-            (item, i) => (
-              <motion.a
-                key={item}
-                custom={i}
-                initial="hidden"
-                animate="visible"
-                variants={navVariants}
-                whileHover={{ scale: 1.05, color: "#00eeff" }}
-                className={`text-sm font-medium transition-colors cursor-pointer ${
-                  item === "Home"
-                    ? "text-primary border-b-2 border-primary pb-1"
-                    : "text-text-dark hover:text-primary"
-                }`}
-                href={`#${item.toLowerCase()}`}
-              >
-                {item}
-              </motion.a>
-            )
-          )}
-        </nav>
-
-        <div className="md:hidden text-primary">
-          <span className="material-symbols-outlined text-3xl">menu</span>
-        </div>
-      </header> */}
       <Header></Header>
 
       <main
@@ -185,21 +154,45 @@ function App() {
             ))}
           </div>
 
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 20px rgba(0,238,255,0.6)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() =>
-              document
-                .getElementById("about")
-                .scrollIntoView({ behavior: "smooth" })
-            }
-            className="bg-primary text-white font-bold py-3 px-8 rounded-full shadow-[0_0_15px_rgba(0,238,255,0.4)] transition-all"
-          >
-            READ MORE
-          </motion.button>
+          <div className="gap-3 flex flex-col md:flex-row">
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 20px rgba(0,238,255,0.6)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() =>
+                document
+                  .getElementById("about")
+                  .scrollIntoView({ behavior: "smooth" })
+              }
+              className="bg-primary text-[#2d1b69] font-bold py-3 px-8 rounded-full shadow-[0_0_15px_rgba(0,238,255,0.4)] transition-all mx-auto md:mx-0 block"
+            >
+              READ MORE
+            </motion.button>
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 20px rgba(0,238,255,0.6)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const fileId = "16OxW7tqKY9DA9_EVboCgl2koPjY0WRDV";
+                const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+
+                // Create temporary link and trigger download
+                const link = document.createElement("a");
+                link.href = downloadUrl;
+                link.download = "Dibakar_Biswas_CV.pdf"; // CV filename
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+              className="bg-primary w-fit text-[#2d1b69] font-bold py-3 px-8 rounded-full shadow-[0_0_15px_rgba(0,238,255,0.4)] transition-all mx-auto md:mx-0 block"
+            >
+              DOWNLOAD CV
+            </motion.button>
+          </div>
         </div>
 
         {/* Image Content */}
@@ -284,13 +277,17 @@ function App() {
                 <span className="text-white font-bold min-w-[100px]">
                   Phone:
                 </span>
-                <span className="text-text-secondary-dark">+8801307232483 / +91 7980751604</span>
+                <span className="text-text-secondary-dark">
+                  +8801307232483 / +91 7980751604
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-white font-bold min-w-[100px]">
                   Location:
                 </span>
-                <span className="text-text-secondary-dark">Jashore, Bangladesh / Bhubaneswar, India</span>
+                <span className="text-text-secondary-dark">
+                  Jashore, Bangladesh / Bhubaneswar, India
+                </span>
               </div>
               {/* <div className="flex items-center gap-2">
                                 <span className="text-white font-bold min-w-[100px]">Freelance:</span>
@@ -372,9 +369,9 @@ function App() {
         </motion.div>
       </section>
 
-      {/* Portfolio Section */}
+      {/* Project Section */}
       <section
-        id="portfolio"
+        id="projects"
         className="py-20 px-4 max-w-7xl mx-auto w-full relative z-10"
       >
         <motion.div
@@ -386,7 +383,7 @@ function App() {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
             My{" "}
             <span className="text-primary border-b-4 border-primary pb-2">
-              Portfolio
+              Projects
             </span>
           </h2>
 

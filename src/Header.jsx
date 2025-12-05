@@ -27,7 +27,7 @@ export default function Header() {
         </motion.h1>
 
         <nav className="hidden md:flex gap-8 items-center">
-          {["Home", "About", "Services", "Portfolio", "Contact"].map(
+          {["Home", "About", "Services", "Projects", "Contact"].map(
             (item, i) => (
               <motion.a
                 key={item}
@@ -74,7 +74,7 @@ export default function Header() {
             className="md:hidden bg-[#0a0a0a] border-b border-gray-800 absolute top-[72px] left-0 w-full z-50"
           >
             <nav className="flex flex-col max-w-7xl mx-auto">
-              {["Home", "About", "Services", "Portfolio", "Contact"].map((item, i) => (
+              {["Home", "About", "Services", "Projects", "Contact"].map((item, i) => (
                 <motion.a
                   key={item}
                   initial={{ opacity: 0, x: -20 }}
