@@ -15,12 +15,14 @@ import {
   FaLaptopCode,
   FaChartLine,
   FaHeart,
+  FaHome,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoPawSharp } from "react-icons/io5";
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { TbTruckDelivery } from "react-icons/tb";
 import Header from "./Header";
+import Contact from "./contact";
 
 function App() {
   const profileRef = useRef(null);
@@ -87,7 +89,7 @@ Rich Indigo - #1a1a2e or #16213e
 
       <main
         id="home"
-        className="flex-grow flex flex-col md:flex-row justify-between items-center px-4 max-w-7xl mx-auto mt-12 md:mt-24 w-full gap-12 mb-32"
+        className="flex-grow flex flex-col md:flex-row justify-between items-center px-4 max-w-7xl mx-auto mt-24 md:mt-24 w-full gap-12 mb-32"
       >
         {/* Text Content */}
         <div className="flex-1 text-center md:text-left z-10">
@@ -387,7 +389,7 @@ Rich Indigo - #1a1a2e or #16213e
             </span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 icon: IoPawSharp,
@@ -397,7 +399,7 @@ Rich Indigo - #1a1a2e or #16213e
               },
               {
                 icon: GiArtificialIntelligence,
-                title: "AI Model Inventory Manager",
+                title: "AI Model Manager",
                 desc: "AI Model Inventory Manager is a modern web application designed to help users explore, manage, and keep track of AI/ML models.",
                 link: "https://ai-model-inventory-manager.netlify.app/",
               },
@@ -406,6 +408,12 @@ Rich Indigo - #1a1a2e or #16213e
                 title: "ZapShift Delivery",
                 desc: "ZapShift is a fast and reliable delivery service designed to get packages to their destination with lightning speed.",
                 link: "https://zap-shift-delivery.netlify.app/",
+              },
+              {
+                icon: FaHome,
+                title: "Style Decoration",
+                desc: "StyleDecor is a modern online appointment system for local decoration businesses offering.",
+                link: "https://home-decoration-edf92.web.app",
               },
             ].map((project, index) => (
               <motion.div
@@ -424,8 +432,13 @@ Rich Indigo - #1a1a2e or #16213e
                   <h3 className="text-xl font-bold text-white mb-3">
                     {project.title}
                   </h3>
-                  <p className="text-text-secondary-dark mb-6 text-sm">
+                  {/* <p className="text-text-secondary-dark mb-6 text-sm">
                     {project.desc}
+                  </p> */}
+                  <p className="text-text-secondary-dark mb-6 text-sm">
+                    {project.desc.length > 70
+                      ? project.desc.substring(0, 100) + "..."
+                      : project.desc}
                   </p>
                   <button
                     onClick={() =>
@@ -443,7 +456,7 @@ Rich Indigo - #1a1a2e or #16213e
       </section>
 
       {/* Contact Section */}
-      <section
+      {/* <section
         id="contact"
         className="py-20 px-4 max-w-3xl mx-auto w-full relative z-10"
       >
@@ -503,7 +516,8 @@ Rich Indigo - #1a1a2e or #16213e
             </form>
           </div>
         </motion.div>
-      </section>
+      </section> */}
+      <Contact></Contact>
 
       {/* Footer */}
       <footer className="py-8 bg-[#050505] border-t border-gray-900 text-center relative z-10">

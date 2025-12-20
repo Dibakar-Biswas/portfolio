@@ -1,6 +1,109 @@
-'use client';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+// 'use client';
+// import { useState } from 'react';
+// import { motion, AnimatePresence } from 'framer-motion';
+
+// export default function Header() {
+//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+//   const navVariants = {
+//     hidden: { opacity: 0, y: -20 },
+//     visible: (i) => ({
+//       opacity: 1,
+//       y: 0,
+//       transition: { delay: i * 0.1, duration: 0.5 }
+//     })
+//   };
+
+//   return (
+//     <>
+//       <header className="flex justify-between items-center py-6 px-4 max-w-7xl mx-auto w-full relative">
+//         <motion.h1
+//           initial={{ opacity: 0, x: -20 }}
+//           animate={{ opacity: 1, x: 0 }}
+//           transition={{ duration: 0.5 }}
+//           className="text-2xl font-bold text-primary tracking-wide"
+//         >
+//           Dibakar Biswas
+//         </motion.h1>
+
+//         <nav className="hidden md:flex gap-8 items-center">
+//           {["Home", "About", "Services", "Projects", "Contact"].map(
+//             (item, i) => (
+//               <motion.a
+//                 key={item}
+//                 custom={i}
+//                 initial="hidden"
+//                 animate="visible"
+//                 variants={navVariants}
+//                 whileHover={{ scale: 1.05, color: "#00eeff" }}
+//                 className={`text-sm font-medium transition-colors cursor-pointer ${
+//                   item === "Home"
+//                     ? "text-primary border-b-2 border-primary pb-1"
+//                     : "text-text-dark hover:text-primary"
+//                 }`}
+//                 href={`#${item.toLowerCase()}`}
+//               >
+//                 {item}
+//               </motion.a>
+//             )
+//           )}
+//         </nav>
+
+//         {/* Mobile Menu Icon */}
+//         <div className="md:hidden text-primary">
+//           <button
+//             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+//             className="focus:outline-none"
+//             aria-label="Toggle menu"
+//           >
+//             <span className="material-symbols-outlined text-3xl">
+//               {isMobileMenuOpen ? 'close' : 'menu'}
+//             </span>
+//           </button>
+//         </div>
+//       </header>
+
+//       {/* Mobile Menu Dropdown */}
+//       <AnimatePresence>
+//         {isMobileMenuOpen && (
+//           <motion.div
+//             initial={{ opacity: 0, y: -20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             exit={{ opacity: 0, y: -20 }}
+//             transition={{ duration: 0.3 }}
+//             className="md:hidden bg-[#0a0a0a] border-b border-gray-800 absolute top-[72px] left-0 w-full z-50"
+//           >
+//             <nav className="flex flex-col max-w-7xl mx-auto">
+//               {["Home", "About", "Services", "Projects", "Contact"].map((item, i) => (
+//                 <motion.a
+//                   key={item}
+//                   initial={{ opacity: 0, x: -20 }}
+//                   animate={{ opacity: 1, x: 0 }}
+//                   transition={{ delay: i * 0.1 }}
+//                   href={`#${item.toLowerCase()}`}
+//                   onClick={() => setIsMobileMenuOpen(false)}
+//                   className={`px-6 py-4 text-sm font-medium transition-colors border-b border-gray-800 ${
+//                     item === "Home"
+//                       ? "text-primary bg-[#111] border-l-4 border-l-primary"
+//                       : "text-text-dark hover:text-primary hover:bg-[#111]"
+//                   }`}
+//                 >
+//                   {item}
+//                 </motion.a>
+//               ))}
+//             </nav>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </>
+//   );
+// }
+
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,25 +113,34 @@ export default function Header() {
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.1, duration: 0.5 }
-    })
+      transition: { delay: i * 0.1, duration: 0.5 },
+    }),
   };
+
+  const menuItems = ['Home', 'About', 'Services', 'Projects', 'Contact'];
 
   return (
     <>
-      <header className="flex justify-between items-center py-6 px-4 max-w-7xl mx-auto w-full relative">
-        <motion.h1
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl font-bold text-primary tracking-wide"
-        >
-          Dibakar Biswas
-        </motion.h1>
+      {/* Sticky wrapper - make it full width and center content */}
+      <div
+        className="fixed top-0 left-0 right-0 z-50 
+      
+      bg-[#0f172a]
+      "
+      >
+        <header className="flex justify-between items-center py-6 px-4 max-w-7xl mx-auto w-full relative">
+          <motion.h1
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-2xl font-bold text-primary tracking-wide"
+          >
+            Dibakar Biswas
+          </motion.h1>
 
-        <nav className="hidden md:flex gap-8 items-center">
-          {["Home", "About", "Services", "Projects", "Contact"].map(
-            (item, i) => (
+          {/* Desktop nav */}
+          <nav className="hidden md:flex gap-8 items-center">
+            {menuItems.map((item, i) => (
               <motion.a
                 key={item}
                 custom={i}
@@ -36,32 +148,32 @@ export default function Header() {
                 animate="visible"
                 variants={navVariants}
                 whileHover={{ scale: 1.05, color: "#00eeff" }}
-                className={`text-sm font-medium transition-colors cursor-pointer ${
-                  item === "Home"
-                    ? "text-primary border-b-2 border-primary pb-1"
-                    : "text-text-dark hover:text-primary"
-                }`}
+                // className={`text-sm font-medium transition-colors cursor-pointer ${
+                //   item === 'Home'
+                //     ? 'text-primary border-b-2 border-primary pb-1'
+                //     : 'text-text-dark hover:text-primary'
+                // }`}
                 href={`#${item.toLowerCase()}`}
               >
                 {item}
               </motion.a>
-            )
-          )}
-        </nav>
+            ))}
+          </nav>
 
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden text-primary">
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            <span className="material-symbols-outlined text-3xl">
-              {isMobileMenuOpen ? 'close' : 'menu'}
-            </span>
-          </button>
-        </div>
-      </header>
+          {/* Mobile Menu Icon */}
+          <div className="md:hidden text-primary">
+            <button
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              className="focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              <span className="material-symbols-outlined text-3xl">
+                {isMobileMenuOpen ? "close" : "menu"}
+              </span>
+            </button>
+          </div>
+        </header>
+      </div>
 
       {/* Mobile Menu Dropdown */}
       <AnimatePresence>
@@ -71,10 +183,10 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-[#0a0a0a] border-b border-gray-800 absolute top-[72px] left-0 w-full z-50"
+            className="md:hidden bg-[#0a0a0a] border-b border-gray-800 fixed top-[72px] left-0 right-0 w-full z-40 mt-3"
           >
             <nav className="flex flex-col max-w-7xl mx-auto">
-              {["Home", "About", "Services", "Projects", "Contact"].map((item, i) => (
+              {menuItems.map((item, i) => (
                 <motion.a
                   key={item}
                   initial={{ opacity: 0, x: -20 }}
@@ -82,11 +194,7 @@ export default function Header() {
                   transition={{ delay: i * 0.1 }}
                   href={`#${item.toLowerCase()}`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`px-6 py-4 text-sm font-medium transition-colors border-b border-gray-800 ${
-                    item === "Home"
-                      ? "text-primary bg-[#111] border-l-4 border-l-primary"
-                      : "text-text-dark hover:text-primary hover:bg-[#111]"
-                  }`}
+                  className={`px-6 py-4 text-sm font-medium transition-colors border-b border-gray-800 `}
                 >
                   {item}
                 </motion.a>
