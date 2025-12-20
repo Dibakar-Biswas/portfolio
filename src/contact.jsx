@@ -82,6 +82,7 @@ const Contact = () => {
                   required: true,
                   pattern: /^\S+@\S+$/i,
                 })}
+                
                 type="email"
                 placeholder="Your Email"
                 className="w-full bg-[#111] border border-gray-800 rounded-lg px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary"
